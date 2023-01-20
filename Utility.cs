@@ -61,7 +61,7 @@ internal static class Utility
 
             if (IsElement("Server") == false)
             {
-                Error($"設定ファイルに<DB>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+                Error($"設定ファイルに<Server>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
             }
 
             if (IsElement("Port") == false)
@@ -295,12 +295,12 @@ internal static class Utility
 
             if (IsElement("AccessPath") == false)
             {
-                Error($"設定ファイルに<SourcePath>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+                Error($"設定ファイルに<AccessPath>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
             }
 
             if (IsElement("AccessBackupPath") == false)
             {
-                Error($"設定ファイルに<TargetPath>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+                Error($"設定ファイルに<AccessBackupPath>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
             }
 
 
