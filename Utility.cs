@@ -32,7 +32,7 @@ internal static class Utility
             // 要素の値を取得する
             XElement log = xml.Element("Log");
             string logPath = log.Element("LogPath").Value;
-            return logFolderPath;
+            return logPath;
         }
         catch
         {
