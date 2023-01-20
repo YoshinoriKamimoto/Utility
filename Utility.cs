@@ -17,6 +17,18 @@ internal static class Utility
             XElement xml = XElement.Load(Program.configPath);
 
 
+            // 取得したい要素の存在チェック
+            if (IsElement("Log") == false)
+            {
+                Error($"設定ファイルに<Log>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
+
+            if (IsElement("LogPath") == false)
+            {
+                Error($"設定ファイルに<LogPath>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
+
+
             // 要素の値を取得する
             XElement log = xml.Element("Log");
             string logPath = log.Element("LogPath").Value;
@@ -30,7 +42,7 @@ internal static class Utility
 
 
     /// <summary>
-    /// 設定ファイルからDB接続文字列を取得するメソッド
+    /// 設定ファイルからDB接続先を取得するメソッド
     /// </summary>
     /// <returns>東京DB・大阪DBの接続文字列を返す、key:"東京" or "大阪",value：接続文字列</returns>
     public static Dictionary<string, string> GetConnectionStr()
@@ -39,6 +51,43 @@ internal static class Utility
         {
             // XMLファイルを読み込む
             XElement xml = XElement.Load(Program.configPath);
+
+
+            // 取得したい要素の存在チェック
+            if (IsElement("DB") == false)
+            {
+                Error($"設定ファイルに<DB>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
+
+            if (IsElement("Server") == false)
+            {
+                Error($"設定ファイルに<DB>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
+
+            if (IsElement("Port") == false)
+            {
+                Error($"設定ファイルに<Port>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
+
+            if (IsElement("UserName") == false)
+            {
+                Error($"設定ファイルに<UserName>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
+
+            if (IsElement("Password") == false)
+            {
+                Error($"設定ファイルに<Password>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
+
+            if (IsElement("TokyoDataBase") == false)
+            {
+                Error($"設定ファイルに<TokyoDataBase>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
+
+            if (IsElement("OsakaDataBase") == false)
+            {
+                Error($"設定ファイルに<OsakaDataBase>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
 
 
             // 要素の値を取得する
@@ -69,7 +118,7 @@ internal static class Utility
 
 
     /// <summary>
-    /// 設定ファイルから対象商品グループコードを取得するメソッド
+    /// 設定ファイルから対象商品アリスグループコードを取得するメソッド
     /// </summary>
     /// <returns>対象にするアリス商品グループコード文字列</returns>
     public static string GetGroupCode()
@@ -78,6 +127,18 @@ internal static class Utility
         {
             // XMLファイルを読み込む
             XElement xml = XElement.Load(Program.configPath);
+
+
+            // 取得したい要素の存在チェック
+            if (IsElement("ItemGroup") == false)
+            {
+                Error($"設定ファイルに<ItemGroup>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
+
+            if (IsElement("GroupCode") == false)
+            {
+                Error($"設定ファイルに<GroupCode>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
 
 
             // 要素の値を取得する
@@ -106,6 +167,18 @@ internal static class Utility
             XElement xml = XElement.Load(Program.configPath);
 
 
+            // 取得したい要素の存在チェック
+            if (IsElement("OrderCheck") == false)
+            {
+                Error($"設定ファイルに<OrderCheck>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
+
+            if (IsElement("ProcCode") == false)
+            {
+                Error($"設定ファイルに<ProcCode>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
+
+
             // 要素の値を取得する
             XElement orderCheck = xml.Element("OrderCheck");
             string procCode = orderCheck.Element("ProcCode").Value;
@@ -130,7 +203,20 @@ internal static class Utility
             // XMLファイルを読み込む
             XElement xml = XElement.Load(Program.configPath);
 
-            // CSVFileタグ内の要素を取得する
+
+            // 取得したい要素の存在チェック
+            if (IsElement("CSV") == false)
+            {
+                Error($"設定ファイルに<CSV>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
+
+            if (IsElement("CSVPath") == false)
+            {
+                Error($"設定ファイルに<CSVPath>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
+
+
+            // 要素の値を取得する
             XElement csvInfo = xml.Element("CSV");
             string csvFolderPath = csvInfo.Element("CSVPath").Value;
             return csvFolderPath;
@@ -153,6 +239,23 @@ internal static class Utility
         {
             // XMLファイルを読み込む
             XElement xml = XElement.Load(Program.configPath);
+
+
+            // 取得したい要素の存在チェック
+            if (IsElement("Copy") == false)
+            {
+                Error($"設定ファイルに<Copy>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
+
+            if (IsElement("SourcePath") == false)
+            {
+                Error($"設定ファイルに<SourcePath>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
+
+            if (IsElement("TargetPath") == false)
+            {
+                Error($"設定ファイルに<TargetPath>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
 
 
             // 要素の値を取得する
@@ -184,6 +287,23 @@ internal static class Utility
             // XMLファイルを読み込む
             XElement xml = XElement.Load(Program.configPath);
 
+            // 取得したい要素の存在チェック
+            if (IsElement("Access") == false)
+            {
+                Error($"設定ファイルに<Copy>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
+
+            if (IsElement("AccessPath") == false)
+            {
+                Error($"設定ファイルに<SourcePath>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
+
+            if (IsElement("AccessBackupPath") == false)
+            {
+                Error($"設定ファイルに<TargetPath>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+            }
+
+
             // 要素の値を取得する
             XElement accessFile = xml.Element("Access");
             string accessFilePath = accessFile.Element("AccessPath").Value;
@@ -191,8 +311,8 @@ internal static class Utility
 
             // コレクションに格納して返却
             Dictionary<string, string> dic = new Dictionary<string, string>();
-            dic.Add("Path", accessFilePath);
-            dic.Add("BackupPath", accessFileBackupPath);
+            dic.Add("AccessPath", accessFilePath);
+            dic.Add("AccessBackupPath", accessFileBackupPath);
             return dic;
         }
         catch
